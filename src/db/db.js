@@ -1,13 +1,43 @@
-const { Client } = require('pg');
+import fs from 'fs';
+import path from 'path';
+import dotenv from 'dotenv'
+import pg from 'pg'
+const { Pool } = pg;
+dotenv.config();
 
-const client = new Client({
+
+const pool = new Pool({
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
   host: 'localhost',
-  database: 'employeeTrackR',
-  user: 'postgres',
-  password: 'mainpassword18!',
+  database: process.env.DB_NAME,
   port: 5432,
 });
 
-client.connect();
+const initializeDB = async () => {
+  const schemaPath = path.join(__dirname, 'schema.sql');
+  const seedsPath = path.join(__dirname, 'seeds.sql');
 
-module.exports = client;
+  try {
+    const schema = await fs.promises.readFile(schemaPath, 'utf8');
+    await pool.query(schema);
+    console.log("Database schema created.");
+
+    const seeds = await fs.promises.readFile(seedsPath, 'utf8');
+    await pool.query(seeds);
+    console.log("Database seeded");
+  } catch (err) {
+    console.error("Error initializing database", err);
+  }
+};
+
+pool.connect()
+    .then(() => {
+    console.log("Connected to the Employee Tracking Database");
+    initializeDB();
+  })
+  .catch(err => {
+    console.error("Connection failed", err);
+  });
+
+module.exports = pool; //export the pool for use in other modules
