@@ -1,4 +1,4 @@
-# SQLemployee-tracker
+# Employee Tracker
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
 ## Description 
