@@ -48,10 +48,13 @@ class Database {
     }
     
     addEmployee(answers) {
-
+        return this.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES
+            ('${answers.firstName}', '${answers.lastName}', ${answers.role}, ${answers.manager})`);
     }
     
     updateEmployeeRole(answers){
-
+        return this.query(`UPDATE employee SET role_id = '${answers.role}' where id = ${answers.employee}`);
     }
-}
+}    
+
+export default new Database();
