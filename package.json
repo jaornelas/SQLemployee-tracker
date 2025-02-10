@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Using SQL, we're creating an interface that allows non-developers to easily view and interact with databases.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
