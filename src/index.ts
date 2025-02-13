@@ -141,7 +141,10 @@ function viewEmployees() {
         console.log('\n');
         console.table(employees);
       })
-      .then(() => loadMainMenu());
+      .then(() => loadMainMenu())
+      .catch((error) => {
+        console.log('Error  viewing employees', error);
+      });
   }
   
   // View all employees that belong to a department
