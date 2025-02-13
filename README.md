@@ -33,8 +33,8 @@ Which will prompt you to enter your password. Once you've successfully connected
 ```
 
 
-See image below for an example site: <br>
-<img src="" alt="demonstration site" width="800"/> <br>
+See image below for an example: <br>
+<img src="./src/img/demonstration.png" alt="demonstration image" width="800"/> <br>
 
 ## Technologies
 * JavaScript
