@@ -2,8 +2,7 @@
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
 ## Description 
-Using SQL, we're creating an interface that allows non-developers to easily view and interact with databases. 
-
+Using SQL, we're creating an interface that allows non-developers to easily view and interact with databases. This program runs on node and allows you to interact with a database to keep track of your employees. You'll have access to various pieces of data, such as departments, role titles and salaries, and of course employees. You can keep track of their names, roles, departments, salaries, and managers.
 
 
 ## Table of Contents 
@@ -16,16 +15,23 @@ Using SQL, we're creating an interface that allows non-developers to easily view
 * [Questions](#questions)
 
 ## Instruction
-Using the command(s) provided, you can clone the repository into your local environment and test the program locally instead of the Render website service. 
+Firstly, make sure you have a Postgres server up and running. If you don't have one, you can download one from PostgreSQL. You'll also want to remove the .EXAMPLE from the .env.EXAMPLE and fill it in with your server information. Once you have your server up and running, use the following command to install dependencies: 
 
 ```bash
 npm i 
 ```
 
+We'll log into the PostgreSQL server using the command :
 
 ```bash
-npm run start
+psql -U <user_name>
 ```
+Which will prompt you to enter your password. Once you've successfully connected, run the command
+
+```bash
+\i src/db/schema.sql
+```
+
 
 See image below for an example site: <br>
 <img src="" alt="demonstration site" width="800"/> <br>

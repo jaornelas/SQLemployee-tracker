@@ -1,9 +1,8 @@
 import inquirer from 'inquirer';
 import logo from 'asciiart-logo';
 import Database from './db/index.js';
-import { pool } from './db/connection.js';
 
-const db = new Database;
+const db = new Database();
 
 init();
 
